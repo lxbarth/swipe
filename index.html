@@ -46,8 +46,8 @@
   layerids = layerids.split('/')[0];
   layerids = layerids.split('&');
 
-  map.addLayer(mapbox.layer().id(layerids[0]).composite(false));
   map.addLayer(mapbox.layer().id(layerids[1]).composite(false));
+  map.addLayer(mapbox.layer().id(layerids[0]).composite(false));
   map.zoom(3);
   map.ui.attribution.add()
       .content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
