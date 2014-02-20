@@ -2,15 +2,20 @@
     var layerids = (location.search.split('?')[1] || '')
         .split('/')[0]
         .split('&');
-
+    var createLayer = function(layerid) {
+        if (layerid.toLowerCase() == 'bing') {
+            return new L.BingLayer("Anqm0F_JjIZvT0P3abS6KONpaBaKuTnITRrnYuiJCE0WOhH6ZbE4DzeT6brvKVR5");
+        }
+        return L.mapbox.tileLayer(layerid);
+    };
     var map = L.mapbox.map('map', null, {
         center: [0, 0],
         zoom: 3
     });
     var hash = L.hash(map);
 
-    L.mapbox.tileLayer(layerids[1]).addTo(map);
-    var overlay = L.mapbox.tileLayer(layerids[0]).addTo(map);
+    createLayer(layerids[1]).addTo(map);
+    var overlay = createLayer(layerids[0]).addTo(map);
 
     var range = document.getElementById('range');
 
