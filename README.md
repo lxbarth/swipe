@@ -3,7 +3,7 @@ Swipe
 
 Compare two Mapbox maps.
 
-http://lxbarth.com/swipe/?examples.c7d2024a&lxbarth.map-x55dflb4#14/40.7334/-73.9867
+http://lxbarth.com/swipe/?lxbarth.map-x55dflb4&lxbarth.map-uuk1insw#14/40.7334/-73.9867
 
 ====
 
