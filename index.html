@@ -1,76 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>
-  <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet' />
-  <style>
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-  </style>
+<meta charset=utf-8 />
+<title>Swipe Layers</title>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
+<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-hash/v0.2.1/leaflet-hash.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
+
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
 </head>
 <body>
-<style type='text/css'>
-  #swipe {
-    background:#fff;
-    position:absolute;
-    bottom:0;
-    left:0;
-    right:0;
-    z-index:1000;
-    padding:10px;
-    height:30px;
-  }
-  #swipe #handle {
-    position:absolute;
-    height:20px;
-    padding:5px;
-    background:#aaa;
-    font-weight:bold;
-    border:1px solid #333;
-    cursor:pointer;
-    -webkit-user-select: none;
-  }
-  .map-attribution {
-    bottom: 50px;
-  }
+<style>
+#range {
+  width: 100%;
+  position: absolute;
+}
+.leaflet-top .leaflet-control-zoom {
+  margin-top: 20px;
+}
 </style>
-<div id='swipe'>
-    <div id='handle'>drag</div>
-</div>
+
 <div id='map'></div>
-<script>
-  var map = mapbox.map('map'),
-      layers = document.getElementById('layers');
-
-  var layerids = location.search.split('?')[1];
-  layerids = layerids.split('/')[0];
-  layerids = layerids.split('&');
-
-  map.addLayer(mapbox.layer().id(layerids[1]).composite(false));
-  map.addLayer(mapbox.layer().id(layerids[0]).composite(false));
-  map.zoom(3);
-  map.ui.attribution.add()
-      .content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
-  map.ui.hash.add();
-
-  var l_parent = map.getLayerAt(1).parent,
-      handle = document.getElementById('handle'),
-      dragging = false;
-
-  handle.onmousedown = function() { dragging = true; return false;}
-  document.onmouseup = function() { dragging = false; }
-  document.onmousemove = function(e) {
-      if (!dragging) return;
-      setDivide(MM.getMousePoint(e, map).x);
-  }
-
-  function setDivide(x) {
-      x = Math.max(0, Math.min(x, map.dimensions.x));
-      handle.style.left = (x - 20) + 'px';
-      l_parent.style.clip = 'rect(0px ' + x + 'px 9999999px 0px)';
-  }
-
-  setDivide(300);
-</script>
+<input id="range" type="range" min="0" max="1.0" step="any" style="width: 100%; position: absolute" />
+<script src='site.js'></script>
 </body>
 </html>
