@@ -18,3 +18,14 @@ Swipe to compare any two Mapbox maps identified by their map ids with each
 other.
 
 https://www.mapbox.com/developers/api-overview/
+
+## Other map providers
+
+You can also compare maps with and among other map providers than Mapbox. Supported identifiers:
+
+- `osm` - OpenStreetMap
+- `google` - Google streets
+- `google.SATELLITE` - Google satellite
+- `google.HYBRID` - Google roads + satellite
+- `google.TERRAIN` - Google terrain
+- `bing` - Bing satellite
