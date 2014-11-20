@@ -2,7 +2,6 @@ L.Google.prototype.addTo =
 L.Yandex.prototype.addTo =
 function(map) {
     map.addLayer(this);
-    console.log(this._container)
     return this;
 };
 L.Yandex.prototype.getContainer =
@@ -54,7 +53,7 @@ L.Google.prototype.getContainer = function() {
         left.getContainer().style.clip = 'rect(' + [nw.y, clipX, se.y, nw.x].join('px,') + 'px)';    
         right.getContainer().style.clip = 'rect(' + [nw.y, se.x, se.y, clipX].join('px,') + 'px)';
     }
-
+    clip();
     range['oninput' in range ? 'oninput' : 'onchange'] = clip;
     map.on('move', clip);
 })();
