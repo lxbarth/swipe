@@ -6,7 +6,7 @@ body {
   }
 #map { position:absolute; top:0; bottom:0; width:100%; background-color: #202222; }
 #range {
-  bottom: 20px;
+  bottom: 35px;
   width: 100%;
   position: absolute;
 }
