@@ -8,6 +8,7 @@ L.Yandex.prototype.getContainer =
 L.Google.prototype.getContainer = function() {
     return this._container;
 };
+L.mapbox.accessToken = 'pk.eyJ1IjoibHhiYXJ0aCIsImEiOiJFVXdYcUlvIn0.bbaHTEWlnAwGgyVwJngMdQ';
 
 (function() {
     if (!location.search) {
