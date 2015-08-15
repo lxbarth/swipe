@@ -1,3 +1,3 @@
 # Swipe compare maps
 
-Use under http://lxbarth.com/swipe/
+Deprecated for https://github.com/lxbarth/compare
