@@ -35,7 +35,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibHhiYXJ0aCIsImEiOiJFVXdYcUlvIn0.bbaHTEWlnAwGg
             case 'yandex':
                 return new L.Yandex();
             case 'osm':
-                map.infoControl.addInfo('<a href="http://openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>');
+                map.attributionControl.addAttribution('<a href="http://openstreetmap.org/copyright">&copy; OpenStreetMap contributors</a>');
                 return new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
             default:
                 return L.mapbox.tileLayer(layerid);
