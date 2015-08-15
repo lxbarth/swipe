@@ -19,6 +19,11 @@ L.Google.prototype.getContainer = function() {
             case 'bing':
                 return new L.BingLayer('AjCTNNlzpfcDOc0G58A4Hzx1N0OGrO8IXpFj1TVqlPG7sUxc8LqXbClnVK9RLk4q');
             case 'google':
+                // split[1] can be one of:
+                // ROADMAP
+                // SATELLITE
+                // HYBRID
+                // TERRAIN
                 return new L.Google(split[1] || 'ROADMAP');
             case 'yandex':
                 return new L.Yandex();
