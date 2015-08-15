@@ -10,9 +10,15 @@ L.Google.prototype.getContainer = function() {
 };
 
 (function() {
+    if (!location.search) {
+        document.getElementById('map').style.display = 'none';
+        document.getElementById('range').style.display = 'none';
+        return;
+    }
     var layerids = (location.search.split('?')[1] || '')
         .split('/')[0]
         .split('&');
+
     var createLayer = function(layerid) {
         var split = layerid.split('.');
         switch(split[0]) {
